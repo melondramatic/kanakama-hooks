@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/kanakama-hooks/static/css/main.5ecd60fb.chunk.css",
-    "main.js": "/kanakama-hooks/static/js/main.33017b35.chunk.js",
-    "main.js.map": "/kanakama-hooks/static/js/main.33017b35.chunk.js.map",
+    "main.js": "/kanakama-hooks/static/js/main.cff3e596.chunk.js",
+    "main.js.map": "/kanakama-hooks/static/js/main.cff3e596.chunk.js.map",
     "runtime-main.js": "/kanakama-hooks/static/js/runtime-main.c85cd267.js",
     "runtime-main.js.map": "/kanakama-hooks/static/js/runtime-main.c85cd267.js.map",
     "static/js/2.66ae6155.chunk.js": "/kanakama-hooks/static/js/2.66ae6155.chunk.js",
     "static/js/2.66ae6155.chunk.js.map": "/kanakama-hooks/static/js/2.66ae6155.chunk.js.map",
     "index.html": "/kanakama-hooks/index.html",
-    "precache-manifest.57c8011c55a7622ee2aa85509b13ee22.js": "/kanakama-hooks/precache-manifest.57c8011c55a7622ee2aa85509b13ee22.js",
+    "precache-manifest.4e12717258b5c9446ee8840e46f17011.js": "/kanakama-hooks/precache-manifest.4e12717258b5c9446ee8840e46f17011.js",
     "service-worker.js": "/kanakama-hooks/service-worker.js",
     "static/css/main.5ecd60fb.chunk.css.map": "/kanakama-hooks/static/css/main.5ecd60fb.chunk.css.map",
     "static/js/2.66ae6155.chunk.js.LICENSE.txt": "/kanakama-hooks/static/js/2.66ae6155.chunk.js.LICENSE.txt",
@@ -106,6 +106,6 @@
     "static/js/runtime-main.c85cd267.js",
     "static/js/2.66ae6155.chunk.js",
     "static/css/main.5ecd60fb.chunk.css",
-    "static/js/main.33017b35.chunk.js"
+    "static/js/main.cff3e596.chunk.js"
   ]
 }
