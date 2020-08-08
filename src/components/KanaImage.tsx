@@ -15,6 +15,7 @@ const KanaImage = ({ kanaSelection, optionKana, className }: Props) => {
 				isHiragana ? optionKana.hiraganaPath : optionKana.katakanaPath
 			}`)}
 			className={className}
+			alt={optionKana.name}
 		/>
 	);
 };

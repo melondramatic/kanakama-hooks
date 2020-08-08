@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, ReactElement } from "react";
 import { KanaType, PracticeMode, Pages } from "../constants";
 import StandardButton from "../components/StandardButton";
 import PracticePage from "./PracticePage";
@@ -99,8 +99,31 @@ const PracticeModePage = ({ setCurrentPage }: Props) => {
 		}
 	};
 
+	const buttons = [] as ReactElement[];
+
+	const backButton = (
+		<StandardButton
+			key={"back-button"}
+			onClick={() => {
+				setSelectedKana(KanaType.Unselected);
+			}}
+			size={"small"}
+		>
+			back
+		</StandardButton>
+	);
+
+	if (
+		selectedKana !== KanaType.Unselected &&
+		selectedMode === PracticeMode.Unselected
+	) {
+		buttons.push(backButton);
+	}
+
 	return (
-		<PageBase setCurrentPage={setCurrentPage}>{renderPageContents()}</PageBase>
+		<PageBase setCurrentPage={setCurrentPage} buttons={buttons}>
+			{renderPageContents()}
+		</PageBase>
 	);
 };
 

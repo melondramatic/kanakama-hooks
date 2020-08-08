@@ -35,6 +35,11 @@ const Styles = makeStyles({
 		fontSize: "16pt",
 		padding: "16px",
 	},
+	header: {
+		textAlign: "left",
+		fontSize: "14pt",
+		padding: "8px",
+	},
 });
 
 const StatsPage = ({ setCurrentPage }: Props) => {
@@ -67,6 +72,10 @@ const StatsPage = ({ setCurrentPage }: Props) => {
 			</div>
 		) : (
 			<>
+				<div className={classes.header}>
+					For more information, you can click on a character for a detailed
+					breakdown of your practice
+				</div>
 				<StatsSummary
 					kanaType={KanaType.Hiragana}
 					setDetailKanaData={setDetailKanaData}
@@ -77,18 +86,23 @@ const StatsPage = ({ setCurrentPage }: Props) => {
 					setDetailKanaData={setDetailKanaData}
 					setIsPanelHidden={setIsPanelHidden}
 				/>
-				<StandardButton
-					onClick={() => {
-						setShowAlert(true);
-					}}
-				>
-					clear stats
-				</StandardButton>
 			</>
 		);
 
+	const buttons = [
+		<StandardButton
+			key={"clear-stats-button"}
+			onClick={() => {
+				setShowAlert(true);
+			}}
+			size={"small"}
+		>
+			clear stats
+		</StandardButton>,
+	];
+
 	return (
-		<PageBase setCurrentPage={setCurrentPage}>
+		<PageBase setCurrentPage={setCurrentPage} buttons={buttons}>
 			<div className={classes.pageContainer}>
 				<div className={classes.statsContainer}>
 					<div className={classes.title}>Your Practice Stats</div>

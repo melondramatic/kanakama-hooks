@@ -38,7 +38,8 @@ const PageBase = (props: Props) => {
 		<div className={classes.baseContainer}>
 			<div className={classes.navigationContainer}>
 				<div className={classes.name}>kanakama</div>
-				<>
+				<div>
+					{props.buttons}
 					<StandardButton
 						onClick={() => {
 							props.setCurrentPage(Pages.MainPage);
@@ -47,8 +48,7 @@ const PageBase = (props: Props) => {
 					>
 						Main Page
 					</StandardButton>
-					{props.buttons}
-				</>
+				</div>
 			</div>
 			<div className={classes.contentContainer}>{props.children}</div>
 		</div>

@@ -23,6 +23,7 @@ const LogoKana = ({ index }: { index: number }) => {
 		<img
 			src={require(`../images/${kana.katakanaPath}`)}
 			className={classes.image}
+			alt={""}
 		/>
 	);
 };
