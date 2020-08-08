@@ -1,0 +1,278 @@
+[
+	{
+		"hiraganaPath": "hiragana-a.svg",
+		"katakanaPath": "katakana-a.svg",
+		"name": "a",
+		"family": "vowel"
+	},
+	{
+		"hiraganaPath": "hiragana-i.svg",
+		"katakanaPath": "katakana-i.svg",
+		"name": "i",
+		"family": "vowel"
+	},
+	{
+		"hiraganaPath": "hiragana-u.svg",
+		"katakanaPath": "katakana-u.svg",
+		"name": "u",
+		"family": "vowel"
+	},
+	{
+		"hiraganaPath": "hiragana-e.png",
+		"katakanaPath": "katakana-e.svg",
+		"name": "e",
+		"family": "vowel"
+	},
+	{
+		"hiraganaPath": "hiragana-o.svg",
+		"katakanaPath": "katakana-o.svg",
+		"name": "o",
+		"family": "vowel"
+	},
+	{
+		"hiraganaPath": "hiragana-ka.svg",
+		"katakanaPath": "katakana-ka.svg",
+		"name": "ka",
+		"family": "K"
+	},
+	{
+		"hiraganaPath": "hiragana-ki.svg",
+		"katakanaPath": "katakana-ki.svg",
+		"name": "ki",
+		"family": "K"
+	},
+	{
+		"hiraganaPath": "hiragana-ku.svg",
+		"katakanaPath": "katakana-ku.png",
+		"name": "ku",
+		"family": "K"
+	},
+	{
+		"hiraganaPath": "hiragana-ke.svg",
+		"katakanaPath": "katakana-ke.png",
+		"name": "ke",
+		"family": "K"
+	},
+	{
+		"hiraganaPath": "hiragana-ko.svg",
+		"katakanaPath": "katakana-ko.png",
+		"name": "ko",
+		"family": "K"
+	},
+	{
+		"hiraganaPath": "hiragana-sa.svg",
+		"katakanaPath": "katakana-sa.svg",
+		"name": "sa",
+		"family": "S"
+	},
+	{
+		"hiraganaPath": "hiragana-shi.svg",
+		"katakanaPath": "katakana-shi.png",
+		"name": "shi",
+		"family": "S"
+	},
+	{
+		"hiraganaPath": "hiragana-su.svg",
+		"katakanaPath": "katakana-su.png",
+		"name": "su",
+		"family": "S"
+	},
+	{
+		"hiraganaPath": "hiragana-se.svg",
+		"katakanaPath": "katakana-se.png",
+		"name": "se",
+		"family": "S"
+	},
+	{
+		"hiraganaPath": "hiragana-so.svg",
+		"katakanaPath": "katakana-so.png",
+		"name": "so",
+		"family": "S"
+	},
+	{
+		"hiraganaPath": "hiragana-ta.svg",
+		"katakanaPath": "katakana-ta.png",
+		"name": "ta",
+		"family": "T"
+	},
+	{
+		"hiraganaPath": "hiragana-chi.svg",
+		"katakanaPath": "katakana-chi.png",
+		"name": "chi",
+		"family": "T"
+	},
+	{
+		"hiraganaPath": "hiragana-tsu.svg",
+		"katakanaPath": "katakana-tsu.png",
+		"name": "tsu",
+		"family": "T"
+	},
+	{
+		"hiraganaPath": "hiragana-te.svg",
+		"katakanaPath": "katakana-te.png",
+		"name": "te",
+		"family": "T"
+	},
+	{
+		"hiraganaPath": "hiragana-to.svg",
+		"katakanaPath": "katakana-to.png",
+		"name": "to",
+		"family": "T"
+	},
+	{
+		"hiraganaPath": "hiragana-na.svg",
+		"katakanaPath": "katakana-na.png",
+		"name": "na",
+		"family": "N"
+	},
+	{
+		"hiraganaPath": "hiragana-ni.svg",
+		"katakanaPath": "katakana-ni.png",
+		"name": "ni",
+		"family": "N"
+	},
+	{
+		"hiraganaPath": "hiragana-nu.svg",
+		"katakanaPath": "katakana-nu.svg",
+		"name": "nu",
+		"family": "N"
+	},
+	{
+		"hiraganaPath": "hiragana-ne.svg",
+		"katakanaPath": "katakana-ne.png",
+		"name": "ne",
+		"family": "N"
+	},
+	{
+		"hiraganaPath": "hiragana-no.svg",
+		"katakanaPath": "katakana-no.png",
+		"name": "no",
+		"family": "N"
+	},
+	{
+		"hiraganaPath": "hiragana-ha.png",
+		"katakanaPath": "katakana-ha.png",
+		"name": "ha",
+		"family": "H"
+	},
+	{
+		"hiraganaPath": "hiragana-hi.svg",
+		"katakanaPath": "katakana-hi.png",
+		"name": "hi",
+		"family": "H"
+	},
+	{
+		"hiraganaPath": "hiragana-fu.svg",
+		"katakanaPath": "katakana-fu.png",
+		"name": "fu",
+		"family": "H"
+	},
+	{
+		"hiraganaPath": "hiragana-he.svg",
+		"katakanaPath": "katakana-he.png",
+		"name": "he",
+		"family": "H"
+	},
+	{
+		"hiraganaPath": "hiragana-ho.svg",
+		"katakanaPath": "katakana-ho.png",
+		"name": "ho",
+		"family": "H"
+	},
+	{
+		"hiraganaPath": "hiragana-ma.svg",
+		"katakanaPath": "katakana-ma.png",
+		"name": "ma",
+		"family": "M"
+	},
+	{
+		"hiraganaPath": "hiragana-mi.svg",
+		"katakanaPath": "katakana-mi.png",
+		"name": "mi",
+		"family": "M"
+	},
+	{
+		"hiraganaPath": "hiragana-mu.svg",
+		"katakanaPath": "katakana-mu.png",
+		"name": "mu",
+		"family": "M"
+	},
+	{
+		"hiraganaPath": "hiragana-me.svg",
+		"katakanaPath": "katakana-me.png",
+		"name": "me",
+		"family": "M"
+	},
+	{
+		"hiraganaPath": "hiragana-mo.svg",
+		"katakanaPath": "katakana-mo.png",
+		"name": "mo",
+		"family": "M"
+	},
+	{
+		"hiraganaPath": "hiragana-ya.svg",
+		"katakanaPath": "katakana-ya.png",
+		"name": "ya",
+		"family": "Y"
+	},
+	{
+		"hiraganaPath": "hiragana-yu.svg",
+		"katakanaPath": "katakana-yu.png",
+		"name": "yu",
+		"family": "Y"
+	},
+	{
+		"hiraganaPath": "hiragana-yo.png",
+		"katakanaPath": "katakana-yo.png",
+		"name": "yo",
+		"family": "Y"
+	},
+	{
+		"hiraganaPath": "hiragana-ra.svg",
+		"katakanaPath": "katakana-ra.png",
+		"name": "ra",
+		"family": "R"
+	},
+	{
+		"hiraganaPath": "hiragana-ri.svg",
+		"katakanaPath": "katakana-ri.png",
+		"name": "ri",
+		"family": "R"
+	},
+	{
+		"hiraganaPath": "hiragana-ru.svg",
+		"katakanaPath": "katakana-ru.png",
+		"name": "ru",
+		"family": "R"
+	},
+	{
+		"hiraganaPath": "hiragana-re.svg",
+		"katakanaPath": "katakana-re.png",
+		"name": "re",
+		"family": "R"
+	},
+	{
+		"hiraganaPath": "hiragana-ro.svg",
+		"katakanaPath": "katakana-ro.png",
+		"name": "ro",
+		"family": "R"
+	},
+	{
+		"hiraganaPath": "hiragana-wa.svg",
+		"katakanaPath": "katakana-wa.png",
+		"name": "wa",
+		"family": "W"
+	},
+	{
+		"hiraganaPath": "hiragana-wo.svg",
+		"katakanaPath": "katakana-wo.png",
+		"name": "wo",
+		"family": "W"
+	},
+	{
+		"hiraganaPath": "hiragana-n.svg",
+		"katakanaPath": "katakana-n.png",
+		"name": "n",
+		"family": "none"
+	}
+]
