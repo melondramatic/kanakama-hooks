@@ -111,8 +111,6 @@ const StatsSummary = (props: Props) => {
 	const parsedStats: KanaStat[] = JSON.parse(userStats);
 	const statsItems = [] as ReactElement[];
 
-	console.log(parsedStats);
-
 	parsedStats.forEach((parsedStat, index) => {
 		const statItem = buildStat(
 			parsedStat,

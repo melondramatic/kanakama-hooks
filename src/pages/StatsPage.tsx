@@ -46,7 +46,6 @@ const StatsPage = ({ setCurrentPage }: Props) => {
 	const classes = Styles();
 
 	const userStats = localStorage.getItem("userStats");
-	console.log(userStats);
 
 	const onClose = () => {
 		setIsPanelHidden(true);

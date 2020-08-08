@@ -62,7 +62,6 @@ export const updateUserStats = (
 		katakanaStat,
 	};
 	parsedUserStats[index] = newStat;
-	console.log(parsedUserStats[index]);
 
 	localStorage.setItem("userStats", JSON.stringify(parsedUserStats));
 };

@@ -10,11 +10,12 @@ interface Props {
 const KanaImage = ({ kanaSelection, optionKana, className }: Props) => {
 	return (
 		<img
-			src={require(`../images/${
-				kanaSelection === KanaType.Hiragana
-					? optionKana.hiraganaPath
-					: optionKana.katakanaPath
-			}`)}
+			src={require(`../images/${optionKana.hiraganaPath}`)}
+			// src={require(`../images/${
+			// 	kanaSelection === KanaType.Hiragana
+			// 		? optionKana.hiraganaPath
+			// 		: optionKana.katakanaPath
+			// }`)}
 			className={className}
 		/>
 	);
