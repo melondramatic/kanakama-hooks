@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "0d5aa78d78b7e6fc9e58ef53b8010957",
+    "revision": "f734ff8389bf905027e7c8d3d5a39805",
     "url": "/kanakama-hooks/index.html"
   },
   {
-    "revision": "f0435a884f25ecb2f956",
+    "revision": "9a16923dac2b09385b20",
     "url": "/kanakama-hooks/static/css/main.5ecd60fb.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/kanakama-hooks/static/js/2.66ae6155.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "f0435a884f25ecb2f956",
-    "url": "/kanakama-hooks/static/js/main.80f8342c.chunk.js"
+    "revision": "9a16923dac2b09385b20",
+    "url": "/kanakama-hooks/static/js/main.33017b35.chunk.js"
   },
   {
     "revision": "9148e5df9587b78773e8",
