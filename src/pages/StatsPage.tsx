@@ -46,51 +46,54 @@ const StatsPage = ({ setCurrentPage }: Props) => {
 	const classes = Styles();
 
 	const userStats = localStorage.getItem("userStats");
+	console.log(userStats);
 
 	const onClose = () => {
 		setIsPanelHidden(true);
 	};
+
+	const statsPageContent =
+		userStats === null ? (
+			<div>
+				<div className={classes.noStats}>
+					There are no stats to display. Start practicing to get some data!
+				</div>
+				<StandardButton
+					onClick={() => {
+						setCurrentPage(Pages.PracticeSelectionPage);
+					}}
+				>
+					Start Practice
+				</StandardButton>
+			</div>
+		) : (
+			<>
+				<StatsSummary
+					kanaType={KanaType.Hiragana}
+					setDetailKanaData={setDetailKanaData}
+					setIsPanelHidden={setIsPanelHidden}
+				/>
+				<StatsSummary
+					kanaType={KanaType.Katakana}
+					setDetailKanaData={setDetailKanaData}
+					setIsPanelHidden={setIsPanelHidden}
+				/>
+				<StandardButton
+					onClick={() => {
+						setShowAlert(true);
+					}}
+				>
+					clear stats
+				</StandardButton>
+			</>
+		);
 
 	return (
 		<PageBase setCurrentPage={setCurrentPage}>
 			<div className={classes.pageContainer}>
 				<div className={classes.statsContainer}>
 					<div className={classes.title}>Your Practice Stats</div>
-					{userStats === null ? (
-						<div>
-							<div className={classes.noStats}>
-								There are no stats to display. Start practicing to get some
-								data!
-							</div>
-							<StandardButton
-								onClick={() => {
-									setCurrentPage(Pages.PracticeSelectionPage);
-								}}
-							>
-								Start Practice
-							</StandardButton>
-						</div>
-					) : (
-						<>
-							<StatsSummary
-								kanaType={KanaType.Hiragana}
-								setDetailKanaData={setDetailKanaData}
-								setIsPanelHidden={setIsPanelHidden}
-							/>
-							<StatsSummary
-								kanaType={KanaType.Katakana}
-								setDetailKanaData={setDetailKanaData}
-								setIsPanelHidden={setIsPanelHidden}
-							/>
-							<StandardButton
-								onClick={() => {
-									setShowAlert(true);
-								}}
-							>
-								clear stats
-							</StandardButton>
-						</>
-					)}
+					{statsPageContent}
 				</div>
 				<SidePanel
 					detailKanaData={detailKanaData}

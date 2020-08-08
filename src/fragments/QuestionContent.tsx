@@ -3,6 +3,7 @@ import { PracticeMode, KanaType } from "../constants";
 import data from "../kana.json";
 import AnswerButtons from "./AnswerButtons";
 import { makeStyles } from "@material-ui/styles";
+import KanaImage from "../components/KanaImage";
 
 interface Props {
 	practiceMode: PracticeMode;
@@ -50,12 +51,9 @@ const QuestionContent = (props: Props) => {
 						<div className={classes.questionText}>
 							Choose the sound that corresponds to the image below
 						</div>
-						<img
-							src={require(`../images/${
-								props.kanaSelection === KanaType.Hiragana
-									? correctKana.hiraganaPath
-									: correctKana.katakanaPath
-							}`)}
+						<KanaImage
+							kanaSelection={props.kanaSelection}
+							optionKana={correctKana}
 							className={classes.kanaImage}
 						/>
 					</>
