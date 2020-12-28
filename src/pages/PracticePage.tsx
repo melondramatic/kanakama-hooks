@@ -1,10 +1,10 @@
-import React, { useState } from "react";
-import { Pages, KanaType, PracticeMode } from "../constants";
-import data from "../kana.json";
-import Counter from "../components/Counter";
-import QuestionContent from "../fragments/QuestionContent";
-import { makeStyles } from "@material-ui/styles";
-import { updateUserStats } from "../utils/updateUserStats";
+import React, { useState } from 'react';
+import { Pages, KanaType, PracticeMode } from '../constants';
+import data from '../kana.json';
+import Counter from '../components/Counter';
+import QuestionContent from '../fragments/QuestionContent';
+import { makeStyles } from '@material-ui/styles';
+import { updateUserStats } from '../utils/updateUserStats';
 
 interface Props {
 	setCurrentPage: React.Dispatch<React.SetStateAction<Pages>>;
@@ -14,11 +14,11 @@ interface Props {
 
 const Styles = makeStyles({
 	pageContainer: {
-		width: "60%",
+		width: '60%',
 	},
 	counterContainer: {
-		display: "flex",
-		justifyContent: "center",
+		display: 'flex',
+		justifyContent: 'center',
 	},
 });
 
@@ -87,8 +87,8 @@ const PracticePage = ({ kanaSelection, practiceMode }: Props) => {
 		<div className={classes.pageContainer}>
 			{createQuestion()}
 			<div className={classes.counterContainer}>
-				<Counter title={"correct:"} count={correctCount} />
-				<Counter title={"incorrect:"} count={incorrectCount} />
+				<Counter title={'Correct:'} count={correctCount} />
+				<Counter title={'Incorrect:'} count={incorrectCount} />
 			</div>
 		</div>
 	);

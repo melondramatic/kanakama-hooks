@@ -131,14 +131,14 @@ const SidePanel = ({
 			<div className={classes.statsContainer}>
 				<div className={classes.header}>Detailed stats:</div>
 				<ExerciseStatData
-					title={"Choose Image stats:"}
-					occurrences={detailKanaData.stat.chooseImageOcurrences}
-					correct={detailKanaData.stat.chooseImageCorrect}
+					title={"Choose Character stats:"}
+					occurrences={detailKanaData.stat.chooseCharacterOcurrences}
+					correct={detailKanaData.stat.chooseCharacterCorrect}
 				/>
 				<ExerciseStatData
-					title={"Choose Sound stats:"}
-					occurrences={detailKanaData.stat.chooseSoundOcurrences}
-					correct={detailKanaData.stat.chooseSoundCorrect}
+					title={"Choose Reading stats:"}
+					occurrences={detailKanaData.stat.chooseReadingOcurrences}
+					correct={detailKanaData.stat.chooseReadingCorrect}
 				/>
 			</div>
 		</div>

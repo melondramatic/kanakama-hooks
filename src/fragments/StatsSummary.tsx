@@ -1,12 +1,12 @@
-import React, { ReactElement, useState } from "react";
-import classNames from "classnames";
-import data from "./../kana.json";
-import KanaImage from "../components/KanaImage";
-import { KanaType, KanaStat } from "../constants";
-import { DetailKanaData } from "./StatsSidePanel";
-import { makeStyles } from "@material-ui/styles";
-import KeyboardArrowRightIcon from "@material-ui/icons/KeyboardArrowRight";
-import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
+import React, { ReactElement, useState } from 'react';
+import classNames from 'classnames';
+import data from './../kana.json';
+import KanaImage from '../components/KanaImage';
+import { KanaType, KanaStat } from '../constants';
+import { DetailKanaData } from './StatsSidePanel';
+import { makeStyles } from '@material-ui/styles';
+import KeyboardArrowRightIcon from '@material-ui/icons/KeyboardArrowRight';
+import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 
 interface Props {
 	kanaType: KanaType;
@@ -18,38 +18,38 @@ interface Props {
 
 const Styles = makeStyles({
 	summaryContainer: {
-		display: "flex",
-		flexDirection: "column",
+		display: 'flex',
+		flexDirection: 'column',
 	},
 	statsItemsContainer: {
-		display: "flex",
-		flexWrap: "wrap",
-		justifyContent: "center",
+		display: 'flex',
+		flexWrap: 'wrap',
+		justifyContent: 'center',
 	},
 	itemContainer: {
-		padding: "16px",
+		padding: '16px',
 	},
 	nameContainer: {
-		display: "flex",
-		justifyContent: "space-around",
-		alignItems: "center",
-		fontSize: "18pt",
-		fontStyle: "italic",
+		display: 'flex',
+		justifyContent: 'space-around',
+		alignItems: 'center',
+		fontSize: '18pt',
+		fontStyle: 'italic',
 	},
 	kanaImage: {
-		height: "40px",
+		height: '40px',
 	},
 	detailsContainer: {
-		textAlign: "left",
+		textAlign: 'left',
 	},
 	title: {
-		textAlign: "left",
-		fontSize: "20pt",
-		display: "flex",
-		alignItems: "center",
+		textAlign: 'left',
+		fontSize: '20pt',
+		display: 'flex',
+		alignItems: 'center',
 	},
 	displayNone: {
-		display: "none",
+		display: 'none',
 	},
 });
 
@@ -66,12 +66,12 @@ const buildStat = (
 	const kana = data[index];
 	const stat = isHiragana ? parsedStat.hiraganaStat : parsedStat.katakanaStat;
 	const totalOcurrences =
-		stat.chooseImageOcurrences + stat.chooseSoundOcurrences;
-	const totalCorrect = stat.chooseImageCorrect + stat.chooseSoundCorrect;
+		stat.chooseCharacterOcurrences + stat.chooseReadingOcurrences;
+	const totalCorrect = stat.chooseCharacterCorrect + stat.chooseReadingCorrect;
 	const accuracy =
 		totalOcurrences > 0
 			? `${((totalCorrect / totalOcurrences) * 100).toFixed(2)}%`
-			: "N/A";
+			: 'N/A';
 	return (
 		<div
 			key={kana.name}
@@ -102,7 +102,7 @@ const StatsSummary = (props: Props) => {
 	const [isCollapsed, setIsCollapsed] = useState(true);
 	const classes = Styles();
 
-	const userStats = localStorage.getItem("userStats");
+	const userStats = localStorage.getItem('userStats');
 
 	if (userStats === null) {
 		return null;
@@ -132,8 +132,8 @@ const StatsSummary = (props: Props) => {
 			>
 				{isCollapsed ? <KeyboardArrowRightIcon /> : <KeyboardArrowDownIcon />}
 				{props.kanaType === KanaType.Hiragana
-					? "Hiragana Stats"
-					: "Katakana Stats"}
+					? 'Hiragana Stats'
+					: 'Katakana Stats'}
 			</div>
 			<div
 				className={classNames(

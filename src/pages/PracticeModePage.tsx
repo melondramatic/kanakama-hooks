@@ -43,17 +43,17 @@ const PracticeModePage = ({ setCurrentPage }: Props) => {
 			<>
 				<StandardButton
 					onClick={() => {
-						setSelectedMode(PracticeMode.ChooseSound);
+						setSelectedMode(PracticeMode.ChooseReading);
 					}}
 				>
-					Choose Sound
+					Choose Reading
 				</StandardButton>
 				<StandardButton
 					onClick={() => {
-						setSelectedMode(PracticeMode.ChooseImage);
+						setSelectedMode(PracticeMode.ChooseCharacter);
 					}}
 				>
-					Choose Image
+					Choose Character
 				</StandardButton>
 			</>
 		);

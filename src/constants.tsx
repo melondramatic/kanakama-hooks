@@ -5,16 +5,16 @@ export enum Pages {
 }
 
 export enum KanaType {
-	Unselected,
-	Hiragana,
-	Katakana,
-	Both,
+	Unselected = "UNSELECTED",
+	Hiragana = "HIRAGANA",
+	Katakana = "KATAKNA",
+	Both = "BOTH",
 }
 
 export enum PracticeMode {
 	Unselected,
-	ChooseSound,
-	ChooseImage,
+	ChooseReading,
+	ChooseCharacter,
 }
 
 export interface Kana {
@@ -30,8 +30,8 @@ export interface KanaStat {
 }
 
 export interface Stat {
-	chooseSoundOcurrences: number;
-	chooseSoundCorrect: number;
-	chooseImageOcurrences: number;
-	chooseImageCorrect: number;
+	chooseReadingOcurrences: number;
+	chooseReadingCorrect: number;
+	chooseCharacterOcurrences: number;
+	chooseCharacterCorrect: number;
 }

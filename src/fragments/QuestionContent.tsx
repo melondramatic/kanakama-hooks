@@ -35,21 +35,21 @@ const QuestionContent = (props: Props) => {
 		const correctKana = data[[...props.options][props.correctIndex]];
 
 		switch (props.practiceMode) {
-			case PracticeMode.ChooseImage:
+			case PracticeMode.ChooseCharacter:
 				return (
 					<>
 						<div className={classes.questionText}>
-							Choose the kana that corresponds to the sound below
+							Choose the character that corresponds to the reading below
 						</div>
 						<div className={classes.selectedKana}>{correctKana.name}</div>
 					</>
 				);
 
-			case PracticeMode.ChooseSound:
+			case PracticeMode.ChooseReading:
 				return (
 					<>
 						<div className={classes.questionText}>
-							Choose the sound that corresponds to the image below
+							Choose the reading that corresponds to the character below
 						</div>
 						<KanaImage
 							kanaSelection={props.kanaSelection}

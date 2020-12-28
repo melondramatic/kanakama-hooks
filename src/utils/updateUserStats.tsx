@@ -1,4 +1,4 @@
-import { KanaType, KanaStat, PracticeMode } from "../constants";
+import { KanaType, KanaStat, PracticeMode } from '../constants';
 
 export const updateUserStats = (
 	index: number,
@@ -6,7 +6,7 @@ export const updateUserStats = (
 	practiceMode: PracticeMode,
 	isCorrect: boolean
 ) => {
-	const userStats = localStorage.getItem("userStats");
+	const userStats = localStorage.getItem('userStats');
 
 	if (userStats === null) return;
 
@@ -17,44 +17,44 @@ export const updateUserStats = (
 	const hiraganaStat =
 		kanaSelection === KanaType.Hiragana
 			? {
-					chooseSoundOcurrences:
-						practiceMode === PracticeMode.ChooseSound
-							? oldHiraganaStat.chooseSoundOcurrences + 1
-							: oldHiraganaStat.chooseSoundOcurrences,
-					chooseSoundCorrect:
-						practiceMode === PracticeMode.ChooseSound && isCorrect
-							? oldHiraganaStat.chooseSoundCorrect + 1
-							: oldHiraganaStat.chooseSoundCorrect,
-					chooseImageOcurrences:
-						practiceMode === PracticeMode.ChooseImage
-							? oldHiraganaStat.chooseImageOcurrences + 1
-							: oldHiraganaStat.chooseImageOcurrences,
-					chooseImageCorrect:
-						practiceMode === PracticeMode.ChooseImage && isCorrect
-							? oldHiraganaStat.chooseImageCorrect + 1
-							: oldHiraganaStat.chooseImageCorrect,
+					chooseReadingOcurrences:
+						practiceMode === PracticeMode.ChooseReading
+							? oldHiraganaStat.chooseReadingOcurrences + 1
+							: oldHiraganaStat.chooseReadingOcurrences,
+					chooseReadingCorrect:
+						practiceMode === PracticeMode.ChooseReading && isCorrect
+							? oldHiraganaStat.chooseReadingCorrect + 1
+							: oldHiraganaStat.chooseReadingCorrect,
+					chooseCharacterOcurrences:
+						practiceMode === PracticeMode.ChooseCharacter
+							? oldHiraganaStat.chooseCharacterOcurrences + 1
+							: oldHiraganaStat.chooseCharacterOcurrences,
+					chooseCharacterCorrect:
+						practiceMode === PracticeMode.ChooseCharacter && isCorrect
+							? oldHiraganaStat.chooseCharacterCorrect + 1
+							: oldHiraganaStat.chooseCharacterCorrect,
 			  }
 			: oldHiraganaStat;
 
 	const katakanaStat =
 		kanaSelection === KanaType.Katakana
 			? {
-					chooseSoundOcurrences:
-						practiceMode === PracticeMode.ChooseSound
-							? oldKatakanaStat.chooseSoundOcurrences + 1
-							: oldKatakanaStat.chooseSoundOcurrences,
-					chooseSoundCorrect:
-						practiceMode === PracticeMode.ChooseSound && isCorrect
-							? oldKatakanaStat.chooseSoundCorrect + 1
-							: oldKatakanaStat.chooseSoundCorrect,
-					chooseImageOcurrences:
-						practiceMode === PracticeMode.ChooseImage
-							? oldKatakanaStat.chooseImageOcurrences + 1
-							: oldKatakanaStat.chooseImageOcurrences,
-					chooseImageCorrect:
-						practiceMode === PracticeMode.ChooseImage && isCorrect
-							? oldKatakanaStat.chooseImageCorrect + 1
-							: oldKatakanaStat.chooseImageCorrect,
+					chooseReadingOcurrences:
+						practiceMode === PracticeMode.ChooseReading
+							? oldKatakanaStat.chooseReadingOcurrences + 1
+							: oldKatakanaStat.chooseReadingOcurrences,
+					chooseReadingCorrect:
+						practiceMode === PracticeMode.ChooseReading && isCorrect
+							? oldKatakanaStat.chooseReadingCorrect + 1
+							: oldKatakanaStat.chooseReadingCorrect,
+					chooseCharacterOcurrences:
+						practiceMode === PracticeMode.ChooseCharacter
+							? oldKatakanaStat.chooseCharacterOcurrences + 1
+							: oldKatakanaStat.chooseCharacterOcurrences,
+					chooseCharacterCorrect:
+						practiceMode === PracticeMode.ChooseCharacter && isCorrect
+							? oldKatakanaStat.chooseCharacterCorrect + 1
+							: oldKatakanaStat.chooseCharacterCorrect,
 			  }
 			: oldKatakanaStat;
 	const newStat: KanaStat = {
@@ -63,5 +63,5 @@ export const updateUserStats = (
 	};
 	parsedUserStats[index] = newStat;
 
-	localStorage.setItem("userStats", JSON.stringify(parsedUserStats));
+	localStorage.setItem('userStats', JSON.stringify(parsedUserStats));
 };

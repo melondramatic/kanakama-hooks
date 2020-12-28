@@ -1,13 +1,13 @@
-import React, { useState, ReactElement } from "react";
-import data from "../kana.json";
-import { makeStyles } from "@material-ui/styles";
-import classNames from "classnames";
-import { KanaType, PracticeMode, Kana } from "../constants";
-import StandardButton from "../components/StandardButton";
-import KanaImage from "../components/KanaImage";
-import CheckIcon from "@material-ui/icons/Check";
-import CloseIcon from "@material-ui/icons/Close";
-import { Icon } from "@material-ui/core";
+import React, { useState, ReactElement } from 'react';
+import data from '../kana.json';
+import { makeStyles } from '@material-ui/styles';
+import classNames from 'classnames';
+import { KanaType, PracticeMode, Kana } from '../constants';
+import StandardButton from '../components/StandardButton';
+import KanaImage from '../components/KanaImage';
+import CheckIcon from '@material-ui/icons/Check';
+import CloseIcon from '@material-ui/icons/Close';
+import { Icon } from '@material-ui/core';
 
 interface Props {
 	practiceMode: PracticeMode;
@@ -29,56 +29,57 @@ interface AnswerButtonProps {
 
 const Styles = makeStyles({
 	answerButtonContainer: {
-		display: "flex",
-		justifyContent: "center",
+		display: 'flex',
+		justifyContent: 'center',
 	},
-	answerButtonSound: {
-		height: "60px",
-		width: "160px",
-		background: "none",
-		border: "solid black 2px",
-		margin: "8px",
-		fontSize: "16pt",
-		fontStyle: "italic",
+	answerButtonReading: {
+		height: '60px',
+		width: '160px',
+		background: 'none',
+		border: 'solid black 2px',
+		margin: '8px',
+		fontSize: '16pt',
+		fontStyle: 'italic',
+		textTransform: 'lowercase',
 	},
-	answerButtonImage: {
-		height: "240px",
-		width: "240px",
-		background: "none",
-		border: "solid black 2px",
-		borderRadius: "4px",
-		margin: "8px",
-		fontSize: "12pt",
+	answerButtonCharacter: {
+		height: '240px',
+		width: '240px',
+		background: 'none',
+		border: 'solid black 2px',
+		borderRadius: '4px',
+		margin: '8px',
+		fontSize: '12pt',
 	},
 	answerImage: {
-		height: "200px",
+		height: '200px',
 	},
-	correctSound: {
-		color: "black !important",
-		backgroundColor: "#66ff66",
+	correctReading: {
+		color: 'black !important',
+		backgroundColor: '#66ff66',
 	},
-	incorrectSound: {
-		color: "black !important",
-		backgroundColor: "#ff6666",
+	incorrectReading: {
+		color: 'black !important',
+		backgroundColor: '#ff6666',
 	},
-	correctImage: {
-		border: "12px solid #66ff66",
+	correctCharacter: {
+		border: '12px solid #66ff66',
 	},
-	incorrectImage: {
-		border: "12px solid #ff6666",
+	incorrectCharacter: {
+		border: '12px solid #ff6666',
 	},
 	buttonWrapper: {
-		position: "relative",
+		position: 'relative',
 	},
 	iconPosition: {
-		position: "absolute",
-		top: "23px",
-		left: "23px",
+		position: 'absolute',
+		top: '23px',
+		left: '23px',
 		zIndex: 1000,
 	},
 });
 
-const AnswerButtonSound = (props: AnswerButtonProps) => {
+const AnswerButtonReading = (props: AnswerButtonProps) => {
 	const classes = Styles();
 
 	return (
@@ -98,7 +99,7 @@ const AnswerButtonSound = (props: AnswerButtonProps) => {
 	);
 };
 
-const AnswerButtonImage = (
+const AnswerButtonCharacter = (
 	props: AnswerButtonProps & { kanaSelection: KanaType }
 ) => {
 	const classes = Styles();
@@ -155,9 +156,9 @@ const createAnswerButton = (
 	icon: ReactElement
 ) => {
 	switch (practiceMode) {
-		case PracticeMode.ChooseSound:
+		case PracticeMode.ChooseReading:
 			return (
-				<AnswerButtonSound
+				<AnswerButtonReading
 					key={index}
 					index={index}
 					onClick={() => onClick()}
@@ -168,9 +169,9 @@ const createAnswerButton = (
 				/>
 			);
 
-		case PracticeMode.ChooseImage:
+		case PracticeMode.ChooseCharacter:
 			return (
-				<AnswerButtonImage
+				<AnswerButtonCharacter
 					key={index}
 					index={index}
 					onClick={() => onClick()}
@@ -194,20 +195,22 @@ const generateAnswerButtonClassName = (
 ) => {
 	const classes = Styles();
 	switch (practiceMode) {
-		case PracticeMode.ChooseSound:
+		case PracticeMode.ChooseReading:
 			return classNames(
-				classes.answerButtonSound,
-				showNext && (isCorrect ? classes.correctSound : classes.incorrectSound)
+				classes.answerButtonReading,
+				showNext &&
+					(isCorrect ? classes.correctReading : classes.incorrectReading)
 			);
 
-		case PracticeMode.ChooseImage:
+		case PracticeMode.ChooseCharacter:
 			return classNames(
-				classes.answerButtonImage,
-				showNext && (isCorrect ? classes.correctImage : classes.incorrectImage)
+				classes.answerButtonCharacter,
+				showNext &&
+					(isCorrect ? classes.correctCharacter : classes.incorrectCharacter)
 			);
 
 		default:
-			return "";
+			return '';
 	}
 };
 

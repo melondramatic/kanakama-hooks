@@ -5,16 +5,16 @@ export const initializeUserStats = () => {
 	for (let i = 0; i < 46; i++) {
 		const kanaStat: KanaStat = {
 			hiraganaStat: {
-				chooseSoundOcurrences: 0,
-				chooseSoundCorrect: 0,
-				chooseImageOcurrences: 0,
-				chooseImageCorrect: 0,
+				chooseReadingOcurrences: 0,
+				chooseReadingCorrect: 0,
+				chooseCharacterOcurrences: 0,
+				chooseCharacterCorrect: 0,
 			},
 			katakanaStat: {
-				chooseSoundOcurrences: 0,
-				chooseSoundCorrect: 0,
-				chooseImageOcurrences: 0,
-				chooseImageCorrect: 0,
+				chooseReadingOcurrences: 0,
+				chooseReadingCorrect: 0,
+				chooseCharacterOcurrences: 0,
+				chooseCharacterCorrect: 0,
 			},
 		};
 		userStats.push(kanaStat);
