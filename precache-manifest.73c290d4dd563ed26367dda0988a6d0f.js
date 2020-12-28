@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "b28b0537b49011b7c112d74934258b66",
+    "revision": "a3ad27ae18ca3e65097b38a1d6962f33",
     "url": "/kanakama-hooks/index.html"
   },
   {
-    "revision": "b2f77b0a772068609bc1",
+    "revision": "7a4ae14b2adb3de10b12",
     "url": "/kanakama-hooks/static/css/main.5ecd60fb.chunk.css"
   },
   {
-    "revision": "ae41673d54a0d5e77b97",
-    "url": "/kanakama-hooks/static/js/2.66ae6155.chunk.js"
+    "revision": "21a38b98f03a3ddeccce",
+    "url": "/kanakama-hooks/static/js/2.c36655ad.chunk.js"
   },
   {
-    "revision": "5e9b6f5c16b720e8a86875f97734673e",
-    "url": "/kanakama-hooks/static/js/2.66ae6155.chunk.js.LICENSE.txt"
+    "revision": "1a3cc71403f332d098a2b9cdd7c4c36d",
+    "url": "/kanakama-hooks/static/js/2.c36655ad.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "b2f77b0a772068609bc1",
-    "url": "/kanakama-hooks/static/js/main.cff3e596.chunk.js"
+    "revision": "7a4ae14b2adb3de10b12",
+    "url": "/kanakama-hooks/static/js/main.257c2447.chunk.js"
   },
   {
-    "revision": "9148e5df9587b78773e8",
-    "url": "/kanakama-hooks/static/js/runtime-main.c85cd267.js"
+    "revision": "74b1225465f80a4e7329",
+    "url": "/kanakama-hooks/static/js/runtime-main.0666fa4c.js"
   },
   {
     "revision": "cacb2328e6aeb22e42650cfa803bb01b",
@@ -240,8 +240,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/kanakama-hooks/static/media/katakana-ke.2b3f9dd0.png"
   },
   {
-    "revision": "a60d6017954abc879ff0edf031749d8e",
-    "url": "/kanakama-hooks/static/media/katakana-ki.a60d6017.svg"
+    "revision": "07a42f9b2d480009213246610a0d71d1",
+    "url": "/kanakama-hooks/static/media/katakana-ki.07a42f9b.svg"
   },
   {
     "revision": "360958af135e06a13cfb615c28ba7493",
