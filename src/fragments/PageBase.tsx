@@ -1,38 +1,43 @@
-import React, { ReactElement } from "react";
-import { Pages } from "../constants";
-import StandardButton from "../components/StandardButton";
-import { makeStyles } from "@material-ui/styles";
+import React, { ReactElement, useContext } from 'react';
+import { makeStyles } from '@material-ui/styles';
+
+import { Pages } from '../constants';
+import Button from '../components/Button';
+import { RoutingContext } from '../Routing';
+import { strings } from '../strings';
 
 interface Props {
 	children: any;
-	setCurrentPage: React.Dispatch<React.SetStateAction<Pages>>;
 	buttons?: ReactElement[];
 }
 
 const Styles = makeStyles({
 	baseContainer: {
-		display: "flex",
-		flexDirection: "column",
-		width: "100%",
+		display: 'flex',
+		flexDirection: 'column',
+		width: '100%',
 	},
 	navigationContainer: {
-		display: "flex",
-		alignItems: "flex-start",
-		justifyContent: "space-between",
+		display: 'flex',
+		alignItems: 'flex-start',
+		justifyContent: 'space-between',
 	},
 	name: {
-		fontSize: "12pt",
-		letterSpacing: "8px",
+		fontSize: '12pt',
+		letterSpacing: '8px',
 		fontWeight: 100,
 	},
 	contentContainer: {
-		display: "flex",
-		justifyContent: "center",
+		display: 'flex',
+		flexDirection: 'column',
+		alignItems: 'center',
+		justifyContent: 'center',
 	},
 });
 
 const PageBase = (props: Props) => {
 	const classes = Styles();
+	const { setCurrentPage } = useContext(RoutingContext);
 
 	return (
 		<div className={classes.baseContainer}>
@@ -40,14 +45,15 @@ const PageBase = (props: Props) => {
 				<div className={classes.name}>kanakama</div>
 				<div>
 					{props.buttons}
-					<StandardButton
+					<Button
+						id={'main-page-button'}
 						onClick={() => {
-							props.setCurrentPage(Pages.MainPage);
+							setCurrentPage(Pages.MainPage);
 						}}
-						size={"small"}
+						size={'small'}
 					>
-						Main Page
-					</StandardButton>
+						{strings.button_mainPage}
+					</Button>
 				</div>
 			</div>
 			<div className={classes.contentContainer}>{props.children}</div>

@@ -1,47 +1,32 @@
-import React from "react";
-import { Pages } from "../constants";
-import StandardButton from "../components/StandardButton";
-import Logo from "../components/Logo";
-import { makeStyles } from "@material-ui/styles";
+import React from 'react';
+import { makeStyles } from '@material-ui/styles';
 
-interface Props {
-	setCurrentPage: React.Dispatch<React.SetStateAction<Pages>>;
-}
+import Logo from '../components/Logo';
+import TitlePageButtons from '../fragments/TitlePageButtons';
+import { LocalStorage } from '../constants';
 
 const Styles = makeStyles({
 	pageContainer: {
-		display: "flex",
-		flexDirection: "column",
-		alignItems: "center",
+		display: 'flex',
+		flexDirection: 'column',
+		alignItems: 'center',
 	},
 	title: {
-		fontSize: "30pt",
-		margin: "12px",
-		letterSpacing: "8px",
+		fontSize: '30pt',
+		margin: '12px',
+		letterSpacing: '8px',
 		fontWeight: 100,
 	},
 });
 
-const TitlePage = ({ setCurrentPage }: Props) => {
+const TitlePage = () => {
 	const classes = Styles();
+	const user = localStorage.getItem(LocalStorage.User);
 	return (
 		<div className={classes.pageContainer}>
 			<Logo />
 			<div className={classes.title}>kanakama</div>
-			<StandardButton
-				onClick={() => {
-					setCurrentPage(Pages.PracticeSelectionPage);
-				}}
-			>
-				start practice
-			</StandardButton>
-			<StandardButton
-				onClick={() => {
-					setCurrentPage(Pages.StatsPage);
-				}}
-			>
-				view stats
-			</StandardButton>
+			<TitlePageButtons />
 		</div>
 	);
 };

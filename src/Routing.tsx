@@ -1,25 +1,52 @@
-import React, { useState } from "react";
-import TitlePage from "./pages/TitlePage";
-import PracticeModePage from "./pages/PracticeModePage";
-import { Pages } from "./constants";
-import StatsPage from "./pages/StatsPage";
+import React, { createContext, useState } from 'react';
+
+import { Pages } from './constants';
+import TitlePage from './pages/TitlePage';
+import PracticeModePage from './pages/PracticeModePage';
+import StatsPage from './pages/StatsPage';
+import RegisterPage from './pages/RegisterPage';
+import SignInPage from './pages/SignInPage';
+import StatsPageInjector from './fragments/StatsPageInjector';
+
+export const RoutingContext = createContext({
+	setCurrentPage: {} as React.Dispatch<React.SetStateAction<Pages>>,
+});
 
 const Routing = () => {
 	const [currentPage, setCurrentPage] = useState(Pages.MainPage);
 
+	var page;
 	switch (currentPage) {
 		case Pages.MainPage:
-			return <TitlePage setCurrentPage={setCurrentPage} />;
+			page = <TitlePage />;
+			break;
 
 		case Pages.PracticeSelectionPage:
-			return <PracticeModePage setCurrentPage={setCurrentPage} />;
+			page = <PracticeModePage />;
+			break;
 
 		case Pages.StatsPage:
-			return <StatsPage setCurrentPage={setCurrentPage} />;
+			page = <StatsPageInjector />;
+			break;
+
+		case Pages.RegisterPage:
+			page = <RegisterPage />;
+			break;
+
+		case Pages.SignInPage:
+			page = <SignInPage />;
+			break;
 
 		default:
-			return <TitlePage setCurrentPage={setCurrentPage} />;
+			page = <TitlePage />;
+			break;
 	}
+
+	return (
+		<RoutingContext.Provider value={{ setCurrentPage }}>
+			{page}
+		</RoutingContext.Provider>
+	);
 };
 
 export default Routing;

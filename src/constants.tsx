@@ -2,19 +2,29 @@ export enum Pages {
 	MainPage,
 	PracticeSelectionPage,
 	StatsPage,
+	RegisterPage,
+	SignInPage,
 }
 
+export const OPTION_COUNT = 3;
+
 export enum KanaType {
-	Unselected = "UNSELECTED",
-	Hiragana = "HIRAGANA",
-	Katakana = "KATAKNA",
-	Both = "BOTH",
+	Unselected = 'UNSELECTED',
+	Hiragana = 'HIRAGANA',
+	Katakana = 'KATAKANA',
+	Both = 'BOTH',
 }
 
 export enum PracticeMode {
-	Unselected,
-	ChooseReading,
-	ChooseCharacter,
+	Unselected = 'UNSELECTED',
+	ChooseReading = 'READING',
+	ChooseCharacter = 'CHARACTER',
+}
+
+export enum LocalStorage {
+	User = 'user',
+	UpdateList = 'updateList',
+	UserStats = 'userStats',
 }
 
 export interface Kana {
@@ -30,8 +40,21 @@ export interface KanaStat {
 }
 
 export interface Stat {
-	chooseReadingOcurrences: number;
+	chooseReadingOccurrences: number;
 	chooseReadingCorrect: number;
-	chooseCharacterOcurrences: number;
+	chooseCharacterOccurrences: number;
 	chooseCharacterCorrect: number;
+}
+
+export interface DetailKanaData {
+	index: number;
+	isHiragana: boolean;
+	stat: Stat;
+}
+
+export interface UpdateListStat {
+	index: number;
+	kanaSelection: KanaType;
+	practiceMode: PracticeMode;
+	isCorrect: boolean;
 }

@@ -1,23 +1,26 @@
-import React, { useState, ReactElement } from "react";
-import { KanaType, PracticeMode, Pages } from "../constants";
-import StandardButton from "../components/StandardButton";
-import PracticePage from "./PracticePage";
-import { initializeUserStats } from "../utils/initializeUserStats";
-import PageBase from "../fragments/PageBase";
-import { makeStyles } from "@material-ui/styles";
+import React, { useState, ReactElement } from 'react';
+import { makeStyles } from '@material-ui/styles';
 
-interface Props {
-	setCurrentPage: React.Dispatch<React.SetStateAction<Pages>>;
-}
+import {
+	KanaType,
+	PracticeMode,
+	LocalStorage,
+	OPTION_COUNT,
+} from '../constants';
+import Button from '../components/Button';
+import PageBase from '../fragments/PageBase';
+import { initializeUserStats } from '../utils/initializeUserStats';
+import PracticePage from './PracticePage';
+import { strings } from '../strings';
 
 const Styles = makeStyles({
 	header: {
-		fontSize: "20pt",
-		padding: "8px",
+		fontSize: '20pt',
+		padding: '8px',
 	},
 });
 
-const PracticeModePage = ({ setCurrentPage }: Props) => {
+const PracticeModePage = () => {
 	const [selectedKana, setSelectedKana] = useState(KanaType.Unselected);
 	const [selectedMode, setSelectedMode] = useState(PracticeMode.Unselected);
 	const classes = Styles();
@@ -25,15 +28,24 @@ const PracticeModePage = ({ setCurrentPage }: Props) => {
 	const kanaButtons = () => {
 		return (
 			<>
-				<StandardButton onClick={() => setSelectedKana(KanaType.Hiragana)}>
-					hiragana
-				</StandardButton>
-				<StandardButton onClick={() => setSelectedKana(KanaType.Katakana)}>
-					katakana
-				</StandardButton>
-				<StandardButton onClick={() => setSelectedKana(KanaType.Both)}>
-					both
-				</StandardButton>
+				<Button
+					id={'hiragana-button'}
+					onClick={() => setSelectedKana(KanaType.Hiragana)}
+				>
+					{strings.practice_hiragana}
+				</Button>
+				<Button
+					id={'katakana-button'}
+					onClick={() => setSelectedKana(KanaType.Katakana)}
+				>
+					{strings.practice_katakana}
+				</Button>
+				<Button
+					id={'both-button'}
+					onClick={() => setSelectedKana(KanaType.Both)}
+				>
+					{strings.practice_both}
+				</Button>
 			</>
 		);
 	};
@@ -41,20 +53,22 @@ const PracticeModePage = ({ setCurrentPage }: Props) => {
 	const modeButtons = () => {
 		return (
 			<>
-				<StandardButton
+				<Button
+					id={'reading-button'}
 					onClick={() => {
 						setSelectedMode(PracticeMode.ChooseReading);
 					}}
 				>
-					Choose Reading
-				</StandardButton>
-				<StandardButton
+					{strings.practice_character}
+				</Button>
+				<Button
+					id={'character-button'}
 					onClick={() => {
 						setSelectedMode(PracticeMode.ChooseCharacter);
 					}}
 				>
-					Choose Character
-				</StandardButton>
+					{strings.practice_reading}
+				</Button>
 			</>
 		);
 	};
@@ -63,16 +77,14 @@ const PracticeModePage = ({ setCurrentPage }: Props) => {
 		if (selectedKana === KanaType.Unselected) {
 			return (
 				<div>
-					<div className={classes.header}>
-						Which set of characters would you like to practice?
-					</div>
+					<div className={classes.header}>{strings.practice_selectKana}</div>
 					{kanaButtons()}
 				</div>
 			);
 		} else {
 			return (
 				<div>
-					<div className={classes.header}>How would you like to practice?</div>
+					<div className={classes.header}>{strings.practice_selectMode}</div>
 					{modeButtons()}
 				</div>
 			);
@@ -80,9 +92,10 @@ const PracticeModePage = ({ setCurrentPage }: Props) => {
 	};
 
 	const renderPageContents = () => {
-		const userStats = localStorage.getItem("userStats");
+		const user = localStorage.getItem(LocalStorage.User);
+		const userStats = localStorage.getItem(LocalStorage.UserStats);
 
-		if (userStats === null) {
+		if (user === null && userStats === null) {
 			initializeUserStats();
 		}
 
@@ -91,9 +104,9 @@ const PracticeModePage = ({ setCurrentPage }: Props) => {
 		} else {
 			return (
 				<PracticePage
-					setCurrentPage={setCurrentPage}
 					practiceMode={selectedMode}
 					kanaSelection={selectedKana}
+					optionCount={OPTION_COUNT}
 				/>
 			);
 		}
@@ -102,15 +115,16 @@ const PracticeModePage = ({ setCurrentPage }: Props) => {
 	const buttons = [] as ReactElement[];
 
 	const backButton = (
-		<StandardButton
-			key={"back-button"}
+		<Button
+			id={'back-button'}
+			key={'back-button'}
 			onClick={() => {
 				setSelectedKana(KanaType.Unselected);
 			}}
-			size={"small"}
+			size={'small'}
 		>
-			back
-		</StandardButton>
+			{strings.button_back}
+		</Button>
 	);
 
 	if (
@@ -120,11 +134,7 @@ const PracticeModePage = ({ setCurrentPage }: Props) => {
 		buttons.push(backButton);
 	}
 
-	return (
-		<PageBase setCurrentPage={setCurrentPage} buttons={buttons}>
-			{renderPageContents()}
-		</PageBase>
-	);
+	return <PageBase buttons={buttons}>{renderPageContents()}</PageBase>;
 };
 
 export default PracticeModePage;

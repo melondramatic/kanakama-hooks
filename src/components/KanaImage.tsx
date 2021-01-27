@@ -1,5 +1,5 @@
-import React from "react";
-import { KanaType, Kana } from "../constants";
+import React from 'react';
+import { KanaType, Kana } from '../constants';
 
 interface Props {
 	kanaSelection: KanaType;

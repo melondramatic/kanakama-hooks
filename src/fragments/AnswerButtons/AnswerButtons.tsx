@@ -1,13 +1,15 @@
-import React, { useState, ReactElement } from 'react';
-import data from '../kana.json';
-import { makeStyles } from '@material-ui/styles';
-import classNames from 'classnames';
-import { KanaType, PracticeMode, Kana } from '../constants';
-import StandardButton from '../components/StandardButton';
-import KanaImage from '../components/KanaImage';
+import React, { useState } from 'react';
+import { Icon } from '@material-ui/core';
 import CheckIcon from '@material-ui/icons/Check';
 import CloseIcon from '@material-ui/icons/Close';
-import { Icon } from '@material-ui/core';
+import { makeStyles } from '@material-ui/styles';
+import classNames from 'classnames';
+
+import Button from '../../components/Button';
+import { KanaType, PracticeMode } from '../../constants';
+import data from '../../kana.json';
+import createAnswerButton from './utils/createAnswerButton';
+import { strings } from '../../strings';
 
 interface Props {
 	practiceMode: PracticeMode;
@@ -18,19 +20,16 @@ interface Props {
 	kanaSelection: KanaType;
 }
 
-interface AnswerButtonProps {
-	index: number;
-	onClick: Function;
-	classNames: string;
-	disabled: boolean;
-	optionKana: Kana;
-	icon: ReactElement;
-}
-
 const Styles = makeStyles({
-	answerButtonContainer: {
+	answerButtonsContainer: {
 		display: 'flex',
 		justifyContent: 'center',
+	},
+	iconPosition: {
+		position: 'absolute',
+		top: '23px',
+		left: '23px',
+		zIndex: 1000,
 	},
 	answerButtonReading: {
 		height: '60px',
@@ -51,9 +50,6 @@ const Styles = makeStyles({
 		margin: '8px',
 		fontSize: '12pt',
 	},
-	answerImage: {
-		height: '200px',
-	},
 	correctReading: {
 		color: 'black !important',
 		backgroundColor: '#66ff66',
@@ -68,62 +64,7 @@ const Styles = makeStyles({
 	incorrectCharacter: {
 		border: '12px solid #ff6666',
 	},
-	buttonWrapper: {
-		position: 'relative',
-	},
-	iconPosition: {
-		position: 'absolute',
-		top: '23px',
-		left: '23px',
-		zIndex: 1000,
-	},
 });
-
-const AnswerButtonReading = (props: AnswerButtonProps) => {
-	const classes = Styles();
-
-	return (
-		<div className={classes.buttonWrapper}>
-			{props.disabled && <>{props.icon}</>}
-			<StandardButton
-				key={props.index}
-				onClick={() => {
-					props.onClick();
-				}}
-				className={props.classNames}
-				disabled={props.disabled}
-			>
-				{props.optionKana.name}
-			</StandardButton>
-		</div>
-	);
-};
-
-const AnswerButtonCharacter = (
-	props: AnswerButtonProps & { kanaSelection: KanaType }
-) => {
-	const classes = Styles();
-
-	return (
-		<div className={classes.buttonWrapper}>
-			{props.disabled && <>{props.icon}</>}
-			<button
-				key={props.index}
-				onClick={() => {
-					props.onClick();
-				}}
-				className={props.classNames}
-				disabled={props.disabled}
-			>
-				<KanaImage
-					kanaSelection={props.kanaSelection}
-					optionKana={props.optionKana}
-					className={classes.answerImage}
-				/>
-			</button>
-		</div>
-	);
-};
 
 const CorrectIcon = () => {
 	const classes = Styles();
@@ -145,55 +86,13 @@ const IncorrectIcon = () => {
 	);
 };
 
-const createAnswerButton = (
-	practiceMode: PracticeMode,
-	index: number,
-	onClick: Function,
-	showNext: boolean,
-	optionKana: Kana,
-	kanaSelection: KanaType,
-	className: string,
-	icon: ReactElement
-) => {
-	switch (practiceMode) {
-		case PracticeMode.ChooseReading:
-			return (
-				<AnswerButtonReading
-					key={index}
-					index={index}
-					onClick={() => onClick()}
-					classNames={className}
-					disabled={showNext}
-					optionKana={optionKana}
-					icon={icon}
-				/>
-			);
-
-		case PracticeMode.ChooseCharacter:
-			return (
-				<AnswerButtonCharacter
-					key={index}
-					index={index}
-					onClick={() => onClick()}
-					classNames={className}
-					disabled={showNext}
-					optionKana={optionKana}
-					kanaSelection={kanaSelection}
-					icon={icon}
-				/>
-			);
-
-		default:
-			break;
-	}
-};
-
 const generateAnswerButtonClassName = (
 	practiceMode: PracticeMode,
 	isCorrect: boolean,
 	showNext: boolean
 ) => {
 	const classes = Styles();
+
 	switch (practiceMode) {
 		case PracticeMode.ChooseReading:
 			return classNames(
@@ -256,16 +155,17 @@ const AnswerButtons = (props: Props) => {
 
 	return (
 		<>
-			<div className={classes.answerButtonContainer}>{answerButtons}</div>
+			<div className={classes.answerButtonsContainer}>{answerButtons}</div>
 			{showNext && (
-				<StandardButton
+				<Button
+					id={'next-button'}
 					onClick={() => {
 						setShowNext(false);
 						props.onIncorrect();
 					}}
 				>
-					Next
-				</StandardButton>
+					{strings.button_next}
+				</Button>
 			)}
 		</>
 	);

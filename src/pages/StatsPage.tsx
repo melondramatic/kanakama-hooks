@@ -1,144 +1,139 @@
-import React, { useState } from "react";
-import { KanaType, Pages } from "../constants";
+import React, { useContext, useState } from 'react';
+import { makeStyles } from '@material-ui/styles';
 
-import StandardButton from "../components/StandardButton";
-import { makeStyles } from "@material-ui/styles";
-import SidePanel, { DetailKanaData } from "../fragments/StatsSidePanel";
-import StatsSummary from "../fragments/StatsSummary";
-import PageBase from "../fragments/PageBase";
-import Dialog from "@material-ui/core/Dialog";
-import DialogActions from "@material-ui/core/DialogActions";
-import DialogContent from "@material-ui/core/DialogContent";
-import DialogContentText from "@material-ui/core/DialogContentText";
+import Button from '../components/Button';
+import Dialog from '../components/Dialog';
+import { DetailKanaData, KanaType, LocalStorage, Pages } from '../constants';
+import PageBase from '../fragments/PageBase';
+import SidePanel from '../fragments/Stats/StatsSidePanel';
+import StatsSummary from '../fragments/Stats/StatsSummary';
+import { RoutingContext } from '../Routing';
+import { strings } from '../strings';
 
 interface Props {
-	setCurrentPage: React.Dispatch<React.SetStateAction<Pages>>;
+	data: string | null;
 }
 
 const Styles = makeStyles({
 	pageContainer: {
-		display: "flex",
-		width: "100%",
+		display: 'flex',
+		width: '100%',
 	},
 	statsContainer: {
-		width: "100%",
+		width: '100%',
 		height: window.innerHeight - 120,
-		overflowY: "scroll",
+		overflowY: 'scroll',
 	},
 	title: {
-		fontSize: "20pt",
+		fontSize: '20pt',
 	},
 	dialogText: {
-		padding: "24px",
+		padding: '24px',
 	},
 	noStats: {
-		fontSize: "16pt",
-		padding: "16px",
-	},
-	header: {
-		textAlign: "left",
-		fontSize: "14pt",
-		padding: "8px",
+		fontSize: '16pt',
+		padding: '16px',
 	},
 });
 
-const StatsPage = ({ setCurrentPage }: Props) => {
-	const [isPanelHidden, setIsPanelHidden] = useState(true);
+const StatsPage = (props: Props) => {
 	const [detailKanaData, setDetailKanaData] = useState<DetailKanaData | null>(
 		null
 	);
 	const [showAlert, setShowAlert] = useState(false);
+	const { setCurrentPage } = useContext(RoutingContext);
 	const classes = Styles();
 
-	const userStats = localStorage.getItem("userStats");
-
 	const onClose = () => {
-		setIsPanelHidden(true);
+		setDetailKanaData(null);
 	};
 
 	const statsPageContent =
-		userStats === null ? (
+		props.data === null ? (
 			<div>
-				<div className={classes.noStats}>
-					There are no stats to display. Start practicing to get some data!
-				</div>
-				<StandardButton
+				<div className={classes.noStats}>{strings.stats_noStats}</div>
+				<Button
+					id={'practice-button'}
 					onClick={() => {
 						setCurrentPage(Pages.PracticeSelectionPage);
 					}}
 				>
-					Start Practice
-				</StandardButton>
+					{strings.button_practice}
+				</Button>
 			</div>
 		) : (
 			<>
-				<div className={classes.header}>
-					For more information, you can click on a character for a detailed
-					breakdown of your practice
-				</div>
+				{!localStorage.getItem(LocalStorage.User) && (
+					<div>
+						<div>{strings.stats_register}</div>
+						<Button
+							id={'create-account-button'}
+							onClick={() => {
+								setCurrentPage(Pages.RegisterPage);
+							}}
+						>
+							{strings.button_register}
+						</Button>
+					</div>
+				)}
 				<StatsSummary
 					kanaType={KanaType.Hiragana}
 					setDetailKanaData={setDetailKanaData}
-					setIsPanelHidden={setIsPanelHidden}
+					stats={props.data}
 				/>
 				<StatsSummary
 					kanaType={KanaType.Katakana}
 					setDetailKanaData={setDetailKanaData}
-					setIsPanelHidden={setIsPanelHidden}
+					stats={props.data}
 				/>
 			</>
 		);
 
-	const buttons = [
-		<StandardButton
-			key={"clear-stats-button"}
-			onClick={() => {
-				setShowAlert(true);
-			}}
-			size={"small"}
-		>
-			clear stats
-		</StandardButton>,
-	];
+	const buttons: JSX.Element[] = [];
+
+	if (
+		!localStorage.getItem(LocalStorage.User) &&
+		localStorage.getItem(LocalStorage.UserStats)
+	) {
+		buttons.push(
+			<Button
+				id={'clear-stats-button'}
+				key={'clear-stats-button'}
+				onClick={() => {
+					setShowAlert(true);
+				}}
+				size={'small'}
+			>
+				{strings.button_clearData}
+			</Button>
+		);
+	}
 
 	return (
-		<PageBase setCurrentPage={setCurrentPage} buttons={buttons}>
+		<PageBase buttons={buttons}>
 			<div className={classes.pageContainer}>
 				<div className={classes.statsContainer}>
-					<div className={classes.title}>Your Practice Stats</div>
+					<div className={classes.title}>{strings.stats_title}</div>
 					{statsPageContent}
 				</div>
-				<SidePanel
-					detailKanaData={detailKanaData}
-					isPanelHidden={isPanelHidden}
-					onClose={onClose}
-				/>
+				{detailKanaData && (
+					<SidePanel detailKanaData={detailKanaData} onClose={onClose} />
+				)}
 			</div>
-			<Dialog open={showAlert}>
-				<DialogContent>
-					<DialogContentText>
-						Are you sure you want to clear your practice statistics? This action
-						cannot be undone.
-					</DialogContentText>
-				</DialogContent>
-				<DialogActions>
-					<StandardButton
-						onClick={() => {
-							localStorage.removeItem("userStats");
-							setShowAlert(false);
-						}}
-					>
-						Clear Data
-					</StandardButton>
-					<StandardButton
-						onClick={() => {
-							setShowAlert(false);
-						}}
-					>
-						Cancel
-					</StandardButton>
-				</DialogActions>
-			</Dialog>
+
+			<Dialog
+				isOpen={showAlert}
+				contentText={strings.dialog_clearStats}
+				leftButtonAction={() => {
+					localStorage.removeItem(LocalStorage.UserStats);
+					setShowAlert(false);
+				}}
+				leftButtonText={strings.button_clearData}
+				rightButtonAction={() => {
+					setShowAlert(false);
+				}}
+				rightButtonText={strings.button_cancel}
+			/>
 		</PageBase>
 	);
 };

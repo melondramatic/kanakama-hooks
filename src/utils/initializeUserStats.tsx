@@ -1,23 +1,23 @@
-import { KanaStat } from "../constants";
+import { KanaStat, LocalStorage } from '../constants';
 
 export const initializeUserStats = () => {
 	const userStats = [] as KanaStat[];
 	for (let i = 0; i < 46; i++) {
 		const kanaStat: KanaStat = {
 			hiraganaStat: {
-				chooseReadingOcurrences: 0,
+				chooseReadingOccurrences: 0,
 				chooseReadingCorrect: 0,
-				chooseCharacterOcurrences: 0,
+				chooseCharacterOccurrences: 0,
 				chooseCharacterCorrect: 0,
 			},
 			katakanaStat: {
-				chooseReadingOcurrences: 0,
+				chooseReadingOccurrences: 0,
 				chooseReadingCorrect: 0,
-				chooseCharacterOcurrences: 0,
+				chooseCharacterOccurrences: 0,
 				chooseCharacterCorrect: 0,
 			},
 		};
 		userStats.push(kanaStat);
 	}
-	localStorage.setItem("userStats", JSON.stringify(userStats));
+	localStorage.setItem(LocalStorage.UserStats, JSON.stringify(userStats));
 };
