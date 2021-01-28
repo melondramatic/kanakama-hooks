@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/kanakama-hooks/precache-manifest.8425322798cadc4dd10a4d7b009ca995.js"
+  "/kanakama-hooks/precache-manifest.761c56894550f67978e2ab584eb0ec07.js"
 );
 
 self.addEventListener('message', (event) => {
