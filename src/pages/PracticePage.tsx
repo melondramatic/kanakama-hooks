@@ -76,13 +76,13 @@ const PracticePage = ({ kanaSelection, practiceMode, optionCount }: Props) => {
 			<>
 				<QuestionContent
 					practiceMode={practiceMode}
-					kanaSelection={kanaSelection}
+					kanaSelection={processedKanaSelection}
 					options={options}
 					correctIndex={correctIndex}
 				/>
 				<AnswerButtons
 					practiceMode={practiceMode}
-					kanaSelection={kanaSelection}
+					kanaSelection={processedKanaSelection}
 					options={options}
 					correctIndex={correctIndex}
 					onCorrect={onCorrect}
