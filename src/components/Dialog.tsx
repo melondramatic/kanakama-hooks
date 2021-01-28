@@ -28,10 +28,10 @@ const Dialog = ({
 				<DialogContentText>{contentText}</DialogContentText>
 			</DialogContent>
 			<DialogActions>
-				<Button id={'left-dialog-button'} onClick={leftButtonAction}>
+				<Button id={'left-dialog-button'} onClick={() => leftButtonAction()}>
 					{leftButtonText}
 				</Button>
-				<Button id={'right-dialog-button'} onClick={rightButtonAction}>
+				<Button id={'right-dialog-button'} onClick={() => rightButtonAction()}>
 					{rightButtonText}
 				</Button>
 			</DialogActions>

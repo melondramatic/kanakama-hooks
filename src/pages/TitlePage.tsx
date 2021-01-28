@@ -3,7 +3,6 @@ import { makeStyles } from '@material-ui/styles';
 
 import Logo from '../components/Logo';
 import TitlePageButtons from '../fragments/TitlePageButtons';
-import { LocalStorage } from '../constants';
 
 const Styles = makeStyles({
 	pageContainer: {
@@ -21,7 +20,6 @@ const Styles = makeStyles({
 
 const TitlePage = () => {
 	const classes = Styles();
-	const user = localStorage.getItem(LocalStorage.User);
 	return (
 		<div className={classes.pageContainer}>
 			<Logo />

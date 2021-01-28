@@ -3,7 +3,6 @@ import React, { createContext, useState } from 'react';
 import { Pages } from './constants';
 import TitlePage from './pages/TitlePage';
 import PracticeModePage from './pages/PracticeModePage';
-import StatsPage from './pages/StatsPage';
 import RegisterPage from './pages/RegisterPage';
 import SignInPage from './pages/SignInPage';
 import StatsPageInjector from './fragments/StatsPageInjector';
