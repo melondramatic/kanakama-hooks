@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "a3ad27ae18ca3e65097b38a1d6962f33",
+    "revision": "9228e8b7b2f907014bde82806c678854",
     "url": "/kanakama-hooks/index.html"
   },
   {
-    "revision": "7a4ae14b2adb3de10b12",
+    "revision": "eb9f3cbf0c0b18c2d018",
     "url": "/kanakama-hooks/static/css/main.5ecd60fb.chunk.css"
   },
   {
-    "revision": "21a38b98f03a3ddeccce",
-    "url": "/kanakama-hooks/static/js/2.c36655ad.chunk.js"
+    "revision": "070c2ad43d183ddf2dc8",
+    "url": "/kanakama-hooks/static/js/2.604e6182.chunk.js"
   },
   {
-    "revision": "1a3cc71403f332d098a2b9cdd7c4c36d",
-    "url": "/kanakama-hooks/static/js/2.c36655ad.chunk.js.LICENSE.txt"
+    "revision": "a5187a747f0da3804c3086eddd29be80",
+    "url": "/kanakama-hooks/static/js/2.604e6182.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "7a4ae14b2adb3de10b12",
-    "url": "/kanakama-hooks/static/js/main.257c2447.chunk.js"
+    "revision": "eb9f3cbf0c0b18c2d018",
+    "url": "/kanakama-hooks/static/js/main.6f365dbe.chunk.js"
   },
   {
     "revision": "74b1225465f80a4e7329",
