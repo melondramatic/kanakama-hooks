@@ -18,6 +18,12 @@ const Styles = makeStyles({
 		fontSize: '20pt',
 		padding: '8px',
 	},
+	kanaButton: {
+		width: '30%',
+	},
+	modeButton: {
+		width: '40%',
+	},
 });
 
 const PracticeModePage = () => {
@@ -31,18 +37,21 @@ const PracticeModePage = () => {
 				<Button
 					id={'hiragana-button'}
 					onClick={() => setSelectedKana(KanaType.Hiragana)}
+					className={classes.kanaButton}
 				>
 					{strings.practice_hiragana}
 				</Button>
 				<Button
 					id={'katakana-button'}
 					onClick={() => setSelectedKana(KanaType.Katakana)}
+					className={classes.kanaButton}
 				>
 					{strings.practice_katakana}
 				</Button>
 				<Button
 					id={'both-button'}
 					onClick={() => setSelectedKana(KanaType.Both)}
+					className={classes.kanaButton}
 				>
 					{strings.practice_both}
 				</Button>
@@ -58,6 +67,7 @@ const PracticeModePage = () => {
 					onClick={() => {
 						setSelectedMode(PracticeMode.ChooseReading);
 					}}
+					className={classes.modeButton}
 				>
 					{strings.practice_character}
 				</Button>
@@ -66,6 +76,7 @@ const PracticeModePage = () => {
 					onClick={() => {
 						setSelectedMode(PracticeMode.ChooseCharacter);
 					}}
+					className={classes.modeButton}
 				>
 					{strings.practice_reading}
 				</Button>

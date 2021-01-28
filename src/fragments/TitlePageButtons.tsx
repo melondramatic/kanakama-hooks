@@ -5,10 +5,18 @@ import Button from '../components/Button';
 import { LocalStorage, Pages } from '../constants';
 import { RoutingContext } from '../Routing';
 import { strings } from '../strings';
+import { makeStyles } from '@material-ui/styles';
+
+const Styles = makeStyles({
+	button: {
+		width: '80%',
+	},
+});
 
 const TitlePageButtons = () => {
 	const { setCurrentPage } = useContext(RoutingContext);
 	const [showAlert, setShowAlert] = useState(false);
+	const classes = Styles();
 
 	return (
 		<>
@@ -17,6 +25,7 @@ const TitlePageButtons = () => {
 				onClick={() => {
 					setCurrentPage(Pages.PracticeSelectionPage);
 				}}
+				className={classes.button}
 			>
 				{strings.button_practice}
 			</Button>
@@ -25,6 +34,7 @@ const TitlePageButtons = () => {
 				onClick={() => {
 					setCurrentPage(Pages.StatsPage);
 				}}
+				className={classes.button}
 			>
 				{strings.button_stats}
 			</Button>
@@ -36,6 +46,7 @@ const TitlePageButtons = () => {
 						onClick={() => {
 							setCurrentPage(Pages.SignInPage);
 						}}
+						className={classes.button}
 					>
 						{strings.button_signIn}
 					</Button>
@@ -44,6 +55,7 @@ const TitlePageButtons = () => {
 						onClick={() => {
 							setCurrentPage(Pages.RegisterPage);
 						}}
+						className={classes.button}
 					>
 						{strings.button_register}
 					</Button>
@@ -57,6 +69,7 @@ const TitlePageButtons = () => {
 						onClick={() => {
 							setShowAlert(true);
 						}}
+						className={classes.button}
 					>
 						{strings.button_signOut}
 					</Button>
