@@ -24,9 +24,20 @@ jobs:
       - image: circleci/node:14
     steps:
       - checkout
-      - run:
-          command: |
-            yarn deploy
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "package.json" }}
+            - v1-dependencies-
+
+      - run: yarn install
+      - save_cache:
+          paths:
+            - node_modules
+            - ~/.npm
+            - ~/.cache
+          key: v1-dependencies-{{ checksum "package.json" }}
+
+      - run: yarn deploy
 
 workflows:
   version: 2
