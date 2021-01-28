@@ -13,20 +13,25 @@ const Styles = makeStyles({
 	},
 });
 
-LogRocket.init('bhu1ag/kmkm-frontend', {
-	network: {
-		requestSanitizer: (request) => {
-			if (request.url.toLowerCase().indexOf('login') !== -1) {
-				request.body = undefined;
-			}
-			return request;
+if (process.env.NODE_ENV === 'production') {
+	LogRocket.init('bhu1ag/kanakama', {
+		dom: {
+			inputSanitizer: true,
 		},
-		responseSanitizer: (response) => {
-			response.body = undefined;
-			return response;
+		network: {
+			requestSanitizer: (request) => {
+				if (request.url.toLowerCase().indexOf('login') !== -1) {
+					request.body = undefined;
+				}
+				return request;
+			},
+			responseSanitizer: (response) => {
+				response.body = undefined;
+				return response;
+			},
 		},
-	},
-});
+	});
+}
 
 function App() {
 	const classes = Styles();
